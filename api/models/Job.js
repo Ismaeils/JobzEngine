@@ -8,7 +8,7 @@ const jobSchema = new Schema({
   description: String,
   technologies: String,
   experience: Number,
-  post_date: Date,
+  post_date: String,
   responsibilities: String,
   company_name: String
 });
