@@ -1,4 +1,5 @@
 const techs = require('./techs.json');
+const axios = require('axios');
 
 let scrapedData = [];
 const BASE_URL = 'https://uk.indeed.com/';
@@ -7,7 +8,8 @@ const scraperObject = {
     url: 'https://uk.indeed.com/jobs?q=Software+engineer&start=10',
     async scraper(browser) {
         let data = await scrapeListingPage(browser,this.url);
-        console.log("Data: ", data);
+        await browser.close();
+        await insertJobs(data);
         return data;
     }
 }
@@ -77,6 +79,16 @@ function technologiesExtractor(desc){
         if (desc.includes(`${tech}`)) techsFound.push(tech);
     });
     return techsFound.join(",");
+}
+
+async function insertJobs(data){
+    axios.post('http://localhost:3000/api/v1/jobs', {scrapped_jobs:data})
+      .then(function (response) {
+        console.log("Jobs are inserted", response);
+      })
+      .catch(function (error) {
+        console.log("Couldn't insert jobs for the following reason: ", error.message);
+      });
 }
 
 module.exports = scraperObject;
