@@ -15,7 +15,7 @@ const scraperObject = {
 }
 
 async function scrapeListingPage(browser,url) {
-    if(scrapedData.length >= 1) return scrapedData;
+    if(scrapedData.length >= 50) return scrapedData;
     console.log("Current Scraped Jobs: ", scrapedData.length)
     let page = await browser.newPage();
     console.log(`Navigating to ${url}...`);
@@ -84,7 +84,7 @@ function technologiesExtractor(desc){
 async function insertJobs(data){
     axios.post('http://localhost:3000/api/v1/jobs', {scrapped_jobs:data})
       .then(function (response) {
-        console.log("Jobs are inserted", response);
+        console.log("Jobs are inserted");
       })
       .catch(function (error) {
         console.log("Couldn't insert jobs for the following reason: ", error.message);
