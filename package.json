@@ -1,0 +1,27 @@
+{
+  "name": "jobzengine",
+  "version": "1.0.0",
+  "description": "Jobs Enginer is an API for fetching web-scraped job listings from different job listers such as Indeed.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "webscrape": "node webscraper/index.js"
+  },
+  "author": "Ismaeil Ghouneim",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "body-parser": "^1.19.2",
+    "cheerio": "^1.0.0-rc.10",
+    "express": "^4.17.3",
+    "express-rate-limit": "^6.3.0",
+    "got": "^11.8.3",
+    "mongoose": "^6.2.5",
+    "puppeteer": "^13.5.1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.0",
+    "nodemon": "^2.0.15"
+  }
+}
