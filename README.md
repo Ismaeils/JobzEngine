@@ -3,6 +3,13 @@
 
 A simple solution that consists of a Web Scraper and an API that fetches the scraped results from Indeed.
 
+### Web Scraper
+It's headless, but it will show some indicators in the command prompt. The scraper pulls job listings data from Indeed. When the scraper finishes, it will automatically insert jobs into database using the same API (POST). So, it requires the server to start first.
+#### Run
+```
+  yarn webscrape
+```
+
 ### API
 #### Get all items
 
@@ -17,11 +24,3 @@ A simple solution that consists of a Web Scraper and an API that fetches the scr
 | `sort_type` | `string` |  Orientation of which you want it sorted. Allowed values are `ascending`, `descending`|
 | `location` | `string` |  Enter a string value to be partially-matched with any value in the location field in each job|
 | `technology` | `string` |  Enter a string value to be partially-matched with any value in the technologies field in each job|
-
-
-### Web Scraper
-It's headless, but it will show some indicators in the command prompt. The scraper pulls job listings data from Indeed.
-#### Run
-```
-  yarn webscrape
-```

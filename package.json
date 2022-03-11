@@ -4,7 +4,7 @@
   "description": "Jobs Enginer is an API for fetching web-scraped job listings from different job listers such as Indeed.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha ./api/test/**/*.test.js --timeout 10000",
     "dev": "nodemon app.js",
     "webscrape": "node webscraper/index.js"
   },
@@ -21,7 +21,10 @@
     "puppeteer": "^13.5.1"
   },
   "devDependencies": {
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
     "dotenv": "^16.0.0",
+    "mocha": "^9.2.2",
     "nodemon": "^2.0.15"
   }
 }
